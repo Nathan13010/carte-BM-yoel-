@@ -31,6 +31,17 @@
             /* Initialement cachée */
         }
 
+        #carte {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('carte.png') center/cover no-repeat;
+            background-color: #1e3c4b;
+            background-size: contain;
+        }
+
         /* Fond flouté et bouton pour ouvrir l'invitation */
         #blurred-background {
             position: absolute;
@@ -46,10 +57,14 @@
 
 
         #open-invitation-button {
+            position: absolute;
+            /* Change 'relative' si nécessaire */
+            z-index: 10;
+            /* Assure-toi que ce chiffre est plus grand que celui des autres éléments */
             background-color: #3b5c6d;
             color: white;
             left: 50%;
-            top: 50%;
+            bottom: 20%;
             height: 50px;
             width: 200px;
             border-radius: 6px;
@@ -58,7 +73,10 @@
             cursor: pointer;
             font-family: "Brandon-Grotesque", sans-serif;
             font-size: 24px;
+            transform: translate(-50%, -50%);
+            /* Centre le bouton */
         }
+
 
         /* Bouton pour rediriger vers le Google Form */
         #form-button {
@@ -66,13 +84,14 @@
             bottom: 20px;
             left: 50%;
             padding: 10px;
-            width: 225px;
+            width: 300px;
             transform: translateX(-50%);
-            background-color: #1b2b33a2;
+            background-color: transparent;
             border-radius: 30px;
             color: white;
             border: none;
-            font-size: 18px;
+            font-size: 15px;
+            font-family: "Brandon-Grotesque", sans-serif;
             cursor: pointer;
         }
 
@@ -101,15 +120,17 @@
 
     <!-- Fond flouté avec bouton -->
     <div id="blurred-background" onclick="showCard()">
+        <div id="carte" class="carte"></div>
         <button id="open-invitation-button">Ouvrir l'invitation</button>
     </div>
+
 
     <!-- Conteneur pour la carte -->
     <div id="card-container">
         <!-- Bouton pour rediriger vers le Google Form -->
         <button id="form-button"
             onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSfO-_aLEje2hOJ15BLTqVfk99Omx1jWYrj5W-62rW9-p8aq2A/viewform'">Répondre
-            à l'invitation</button>
+            à l'invitation en cliquant ici</button>
     </div>
 
     <script>
